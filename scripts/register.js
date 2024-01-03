@@ -11,29 +11,41 @@ let petSalon = {
         open: "9:00 am",
         close: "8:00 pm"
     },
-    pets: [
-        {
-            name: "Lucas",
-            age: 80,
-            gender:"Male",
-            service:"Grooming"
-        },
-        {
-            name: "Scooby",
-            age: 70,
-            gender:"Male",
-            service:"Nail cut"
-        },
-        {
-            name: "Tweety",
-            age: 79,
-            gender:"Male",
-            service:"Vaccine"
-        }
-    ]
+    pets: []
 }
 
-console.log(petSalon);
-console.table(petSalon.pets);
+//object constructor (function)
+function Pet(n,a,g,s,b){
+    this.name = n;
+    this.age = a;
+    this.gender = g;
+    this.service = s;
+    this.breed = b;
+}
 
-console.log(petSalon.pets[0].name);
+function register(){
+    //get values from the inputs
+    let inputName = document.getElementById("txtName").value;
+    let inputAge = document.getElementById("txtAge").value;
+    let inputGender = document.getElementById("txtGender").value;
+    let inputService = document.getElementById("txtService").value;
+    let inputBreed = document.getElementById("txtBreed").value;
+
+    //creating the object
+    let newPet = new Pet(inputName, inputAge, inputGender, inputService, inputBreed);
+
+    //push the object
+    petSalon.pets.push(newPet);
+
+    //display the pets array on the console
+    
+}
+
+//create pets using the constructor
+//let p1 = new Pet("Scooby",60,"Male");
+//let p2 = new Pet("Mora", 7,"Female");
+//let p3 = new Pet("Chilin", 3, "Male");
+
+//petSalon.pets.push(p1,p2,p3);
+
+
