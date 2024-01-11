@@ -44,8 +44,6 @@ function register(){
     }else{
         showNotification("notifications","alert-danger","Insert all the required fields");
     }
-    
-    
 
     //display the pets array on the console
 }
@@ -86,6 +84,14 @@ function deletePet(petID){
     petSalon.pets.splice(indexDelete,1); //remove from the array
 }
 
+function addServices(){
+    let services = readArray();
+    for(let i=0;i<services.length;i++){
+        $("#txtService").append(`<option value="${services[i].description}">${services[i].description}</option>`)
+    }
+}
+
+
 function init(){
     //create pets using the constructor
     let p1 = new Pet("Scooby",60,"Male","Hair Cut","Dane");
@@ -94,6 +100,7 @@ function init(){
 
     petSalon.pets.push(p1,p2,p3);
     displayPetCards();
+    addServices();
     $("#notifications").hide();
 }
 

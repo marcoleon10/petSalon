@@ -8,7 +8,7 @@ function Service(description,price){
 
 //create the register function
 function register(){
-    console.log("adding a service");
+    
     let inputDescription = $("#txtDescription").val();
     let inputPrices = $("#txtPrice").val();
 
@@ -16,11 +16,9 @@ function register(){
 
     if(isValid(newService) == true){
         //push the object
-        services.push(newService);
         $("input").val(""); //clear the inputs
+        saveArray(newService); //converting array into string and saving it 
     }
-    services.push(newService);
-
 
 }
 

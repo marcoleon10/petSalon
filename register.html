@@ -5,72 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
+    
     <header>
         <h1>The Fashion Pet</h1>
     </header>
+    <div class = "alert alert-success" id="notifications">
+        <p>Notifications will be here</p>
+
+    </div>
     <main class = "container">
         <div>
             <h2>Register a new Pet</h2>
-
-            <div class = "alert alert-success" id="notifications">
-                <p>Notifications will be here</p>
-
-            </div>
-
-            <div>
-                <label>Name:* </label>
-                <input type="text" id ="txtName">
+            <fieldset>
                 
+                <div class="input-container">
+                    <label>Name:* </label>
+                    <input type="text" id ="txtName">
+                    
+                </div>
+                <div class="input-container">
+                    <label>Age:* </label>
+                    <input type="number" id ="txtAge" class="input-controller">
+                </div>
+                <div class="input-container">
+                    <label>Gender: </label>
+                    <input type="text" id ="txtGender">
+                </div>
+                <div class="input-container">
+                    <label>Service: </label>
+                    <select id="txtService">  
+                    </select>
+                    
+                    
+                </div>
+                <div class="input-container">
+                    <label>Breed: </label>
+                    <select id="txtBreed">
+                        <option value="Dane">Dane</option>
+                        <option value="Chihuahua">Chihuahua</option>
+                        <option value="Pitbull">Pitbull</option>
+                    </select>
+                </div>
+            </fieldset>
+            <div class="btn-register">
+                <button onclick="register();" class="btn btn-dark">Register</button>
             </div>
-            <div>
-                <label>Age:* </label>
-                <input type="number" id ="txtAge">
-            </div>
-            <div>
-                <label>Gender: </label>
-                <input type="text" id ="txtGender">
-            </div>
-            <div>
-                <label>Service: </label>
-                <select id="txtService">
-                    <option value="HairCut">Hair Cut</option>
-                    <option value="NailsCut">Nails Cut</option>
-                </select>
-                
-                
-            </div>
-            <div>
-                <label>Breed: </label>
-                <select id="txtBreed">
-                    <option value="Dane">Dane</option>
-                    <option value="Chihuahua">Chihuahua</option>
-                    <option value="Pitbull">Pitbull</option>
-                </select>
-            </div>
-
-            <button onclick="register();" class="btn btn-light">Register</button>
         
         </div>
-        <div>
-            <h2>Registered pets</h2>
-            <table class="table">
-                <tr>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>Service</th>
-                    <th>Breed</th>
-                </tr>
-                <tbody id="pets"></tbody>
-            </table>
+        <div class = "slider-register">
             
+            <div class="scrollable-container">
+                <h2>Registered pets</h2>
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Service</th>
+                        <th>Breed</th>
+                    </tr>
+                    <tbody id="pets"></tbody>
+                </table>
+                
+            </div>
+
+            <div class="wrapper">
+                <i id="left" class="fa-solid fa-angle-left"></i>
+                <ul id="pets2" class="carousel" >
+                    <li class="card">
+                        <div class="img"><img src="./imgs/perrito.jpg" alt="img" draggable="false"></div>
+                        <h2>Perrito</h2>
+                        <span>Breed</span>
+                    </li>
+                    <li class="card">
+                        <div class="img"><img src="./imgs/perrito.jpg" alt="img" draggable="false"></div>
+                        <h2>Perrito</h2>
+                        <span>Breed</span>
+                    </li>
+                    <!--
+                    <li class="card">
+                        <div class="img"><img src="./imgs/perrito.jpg" alt="img" draggable="false"></div>
+                        <h2>Perrito</h2>
+                        <span>Breed</span>
+                    </li>
+                    <li class="card">
+                        <div class="img"><img src="./imgs/perrito.jpg" alt="img" draggable="false"></div>
+                        <h2>Perrito</h2>
+                        <span>Breed</span>
+                    </li>
+                    <li class="card">
+                        <div class="img"><img src="./imgs/perrito.jpg" alt="img" draggable="false"></div>
+                        <h2>Perrito</h2>
+                        <span>Breed</span>
+                    </li>-->
+                </ul>
+                <i id="right" class="fa-solid fa-angle-right"></i>
+            </div>
         </div>
+
     </main>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./scripts/slider.js" defer></script>
+    <script src="./scripts/storeManager.js"></script>
     <script src="./scripts/register.js"></script>
     <script src="./scripts/display.js"></script>
 </body>

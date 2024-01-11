@@ -1,3 +1,161 @@
 .bg-red{
     background-color: rgba(255, 91, 91, 0.726);
 }
+
+*{
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background: url("./imgs/dogrunning.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+
+h1{
+    font-size: 5em;
+}
+
+h2{
+    font-weight: bold;
+}
+
+header{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+}
+
+.alert{
+    margin-left: 50px;
+    margin-right: 50px;
+
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+
+.input-container{
+    padding: 5px;
+    display: flex;
+    
+    
+}
+
+.input-container label{
+    width: 180px;
+    padding: 10px;
+}
+
+.input-container input, .input-container textarea, .input-container select{
+    
+    padding: 5px;
+    border-radius: 25px;
+    width: 100%;
+}
+
+.input-container label{
+    font-size: 20px;
+}
+
+.btn-register{
+    text-align: center;
+}
+
+.btn.btn-dark{
+    max-width: 200px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+
+.table tr th{
+    font-size: 20px;
+}
+
+
+
+.scrollable-container {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+/*Desing for slidercards*/
+
+.slider-register{
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper{
+    margin-top: 50px;
+    max-width: 700px;
+    width: 100%;
+}
+
+.wrapper i{
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute; 
+    top:100%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.wrapper i:first-child{
+    
+    left: 450px;
+}
+
+.wrapper i:last-child{
+    right: 70px;
+}
+
+
+.wrapper .carousel{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: calc(100% / 1) - 12px;
+    gap:25px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.carousel.dragging .card{
+    cursor: grab;
+    user-select: none;
+}
+
+.carousel .card{
+    position: relative;
+    list-style: none;
+    border-radius: 10px;
+    height: 500px;
+    width: 500px;
+
+}
+
+.card .img img{
+    width: 500px;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
