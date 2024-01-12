@@ -1,11 +1,16 @@
 function displayPetCards(){
     const DIV = document.getElementById("pets");
     const DIV2 = document.getElementById("pets2");
+    const DIV3 = document.getElementById("txtTotalPrice");
     let card="";
     let slider="";
+    let counter=0;
+    let total="";
     //travel the array (for)
     for(i=0;i<petSalon.pets.length;i++){
         //create  the HTML template
+        counter+=petSalon.pets[i].price;
+
         let pet = petSalon.pets[i];
         card+=`
         <tr id="${pet.id}">
@@ -14,10 +19,11 @@ function displayPetCards(){
             <td>${pet.gender}</td>
             <td>${pet.service}</td>
             <td>${pet.breed}</td>
+            <td>${pet.price}</td>
             <td> <button onclick="deletePet(${pet.id})">🗑️</button> </td>
         </tr>
         `;
-        console.log(pet.breed);
+        
         if(pet.breed=='Dane'){
             slider+=`
             <li class="card">
@@ -51,12 +57,12 @@ function displayPetCards(){
                 
             </li>`;
         }
-        
-        
     }
+    total=` ${counter}`;
 
     DIV.innerHTML=card;
     DIV2.innerHTML=slider;
+    DIV3.innerHTML=total;
 
     
     //insert the HTML template into register.html

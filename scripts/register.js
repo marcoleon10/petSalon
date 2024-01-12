@@ -16,12 +16,13 @@ let petSalon = {
 let counter=0;
 
 //object constructor (function)
-function Pet(n,a,g,s,b){
+function Pet(n,a,g,s,b,p){
     this.name = n;
     this.age = a;
     this.gender = g;
     this.service = s;
     this.breed = b;
+    this.price = p;
     this.id = counter++;
 }
 
@@ -34,7 +35,7 @@ function register(){
     let inputBreed = document.getElementById("txtBreed").value;
 
     //creating the object
-    let newPet = new Pet(inputName, inputAge, inputGender, inputService, inputBreed);
+    let newPet = new Pet(inputName, inputAge, inputGender, inputService, inputBreed, getServicePrice(inputService));
     if(isValid(newPet) == true){
         //push the object
         petSalon.pets.push(newPet);
@@ -48,6 +49,17 @@ function register(){
     //display the pets array on the console
 }
 
+function getServicePrice(serviceDescription){
+    let services = readArray();
+    let price;
+    for(let i=0;i<services.length;i++){
+        let selected = services[i];
+        if(selected.description==serviceDescription){
+            price = selected.price;
+        }
+    }
+    return Number(price);
+}
 
 
 function isValid(aPet){
@@ -75,13 +87,18 @@ function deletePet(petID){
     let indexDelete;
     for(i=0;i<petSalon.pets.length;i++){
         let selected = petSalon.pets[i];
-        if(selected.id===petID){//getting the current pet
+        if(selected.id==petID){//getting the current pet
             indexDelete=i; //we found the pet from the array
         }
     }
     showNotification("notifications","alert-secondary","The pet " + petSalon.pets[indexDelete].name + " was deleted");
 
+    //remove from array
+    
+
+
     petSalon.pets.splice(indexDelete,1); //remove from the array
+    displayPetCards();
 }
 
 function addServices(){
@@ -94,13 +111,13 @@ function addServices(){
 
 function init(){
     //create pets using the constructor
-    let p1 = new Pet("Scooby",60,"Male","Hair Cut","Dane");
-    let p2 = new Pet("Mora", 7,"Female", "Shower", "Chihuahua");
-    let p3 = new Pet("Chilin", 3, "Male", "Nails Cut", "Pitbull");
+    let p1 = new Pet("Scooby",60,"Male","Hair Cut","Dane", getServicePrice("Hair Cut"));
+    let p2 = new Pet("Mora", 7,"Female", "Shower", "Chihuahua", getServicePrice("Shower"));
+    let p3 = new Pet("Chilin", 3, "Male", "Nails Cut", "Pitbull", getServicePrice("Nails Cut"));
 
     petSalon.pets.push(p1,p2,p3);
-    displayPetCards();
     addServices();
+    displayPetCards();
     $("#notifications").hide();
 }
 

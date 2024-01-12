@@ -90,6 +90,22 @@ header{
     overflow-y: auto;
 }
 
+.totalPrice{
+    
+    text-align: right;
+    margin-left: 440px;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.totalPrice p{
+    margin-right: 20px;
+    font-weight: bold;
+    
+}
+
+
 /*Desing for slidercards*/
 
 .slider-register{
